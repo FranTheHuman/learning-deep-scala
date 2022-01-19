@@ -3,8 +3,6 @@ package scala_with_cats
 import cats.data.EitherT
 
 import scala.concurrent.Future
-import scala.concurrent.impl.Promise
-import scala.util.{Failure, Success}
 
 object MonadTransformers extends App {
 
@@ -90,6 +88,6 @@ object MonadTransformers extends App {
   // res13: String = "Jazz and Bumblebee need a recharge."
   println(tacticalReport("Bumblebee", "Hot Rod"))
   // res14: String = "Bumblebee and Hot Rod are ready to roll out!"
-    println(tacticalReport("Jazz", "Ironhide"))0
+    println(tacticalReport("Jazz", "Ironhide"))
   // res15: String = "Comms error: Ironhide unreachable"
 }

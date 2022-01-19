@@ -5,6 +5,7 @@ object SequencingComputations extends App {
   // FOLD -> TRABAJAR CON INFORMACION GENERICA PIDIENDO EL DATO GENERICO Y COMO LABURAR CON ESE DATO
 
 
+
   // 5.1.3.1 Generic List
 
   // Our IntList type was defined as

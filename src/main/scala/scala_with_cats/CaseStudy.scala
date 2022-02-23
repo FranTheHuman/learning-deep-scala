@@ -1,7 +1,5 @@
 package scala_with_cats
 
-import cats.data.AndThen
-
 import scala.concurrent.duration.DurationInt
 import scala.concurrent.{Await, Future}
 
@@ -48,10 +46,10 @@ object CaseStudy extends App {
   // comment out the body of getTotalUptime (replace it with ??? to make everything compile);
   // add a type parameter F[_] to UptimeService and pass it on to UptimeClient.
 
-  import cats.instances.list._ // for Traverse
-  import cats.syntax.traverse._ // for traverse
-  import cats.syntax.functor._ // for map
   import cats.Applicative
+  import cats.instances.list._
+  import cats.syntax.functor._
+  import cats.syntax.traverse._
 
   class UptimeService[F[_] : Applicative](client: UptimeClient[F]) {
     def getTotalUptime(hostnames: List[String]): F[Int] =
@@ -186,9 +184,8 @@ object CaseStudy extends App {
 
   import cats.Semigroup
   import cats.data.Validated
-  import cats.syntax.semigroup._ // for |+|
-  import cats.syntax.apply._     // for mapN
-  import cats.data.Validated._   // for Valid and Invalid
+  import cats.data.Validated._
+  import cats.syntax.apply._   // for Valid and Invalid
 
   sealed trait Predicate[E, A] {
     def and(that: Predicate[E, A]): Predicate[E, A] =

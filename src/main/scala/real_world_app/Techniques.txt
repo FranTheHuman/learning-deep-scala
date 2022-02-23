@@ -1,0 +1,14 @@
+Al comenzar con programacion funcional hay que sentirse comodo hablando de los siguientes temas:
+
+    - Semigroup   - Monoid
+    - Applicative - Functor
+    - Monad       - Disjunction
+
+    - Vienen de las Matematica -> Teoria de las categorias.
+
+  ---  The Railway Pettern ---
+
+    * Elegant control flow
+    * 2 railways
+        - Sucess path and transition
+        - Failure path and ignore subsequent operations while still being composed into single chain

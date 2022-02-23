@@ -108,6 +108,7 @@ object Traits extends App {
       case Pink => Pink.toString
       case custom: CustomColor if custom.isDark => "Dark Color"
       case custom: CustomColor if custom.isLight => "Light Color"
+      case _ => ??? // X - only for not warnings
     }
   }
 

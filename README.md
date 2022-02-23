@@ -15,7 +15,14 @@ Improving knowledge about Scala and Functional Programming with cats.
     - Exercises from the book "Scala with Cats".
     - https://www.scalawithcats.com/dist/scala-with-cats.html
   
-  ###### 3. Katas: 
+  ###### 3. Scala with Cats effects:
+    - Exercises.
+    -
+
+  ###### 4. Real World App Using Purely Functional Techniques:
+      - https://www.youtube.com/watch?v=m40YOZr1nxQ.
+
+  ###### 5. Katas: 
     - Various complex exercises.
     - https://kata-log.rocks/
     
@@ -45,7 +52,10 @@ Improving knowledge about Scala and Functional Programming with cats.
 │   │   │   ├── katas
 │   │   │   │   ├── FizzBuzz.scala
 │   │   │   │   ├── TelemetryApp.scala
+│   │   │   ├── real_world_app
 │   │   │   ├── scala_with_cats
 │   │   │   │   ├── Monoids_Semigroups.scala
 │   │   │   │   ├── TypeClasses.scala
+│   │   │   │   ├──  free_monads
+│   │   │   │   │   ├──  FreeMonads.scala
 ```

@@ -12,8 +12,12 @@ lazy val root = (project in file("."))
       scalaTest % Test,
       catsCore,
       catsEffect,
-      catsEffectTest
+      catsFree,
+      catsEffectTest,
+      scalaZ
     )
   )
+
+initialCommands in console := "import scalaz._, Scalaz._"
 
 // See https://www.scala-sbt.org/1.x/docs/Using-Sonatype.html for instructions on how to publish to Sonatype.

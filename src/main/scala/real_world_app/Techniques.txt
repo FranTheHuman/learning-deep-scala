@@ -4,6 +4,8 @@ Al comenzar con programacion funcional hay que sentirse comodo hablando de los s
     - Applicative - Functor
     - Monad       - Disjunction
 
+    * Disjunction: Manera de representar 2 estados diferentes en el mismo type
+
     - Vienen de las Matematica -> Teoria de las categorias.
 
   ---  The Railway Pettern ---

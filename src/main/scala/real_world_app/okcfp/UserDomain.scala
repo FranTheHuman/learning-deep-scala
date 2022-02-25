@@ -1,16 +1,10 @@
 package real_world_app.okcfp
 
-import scala.collection.Iterator
+import scalaz._
+import scalaz.Scalaz._
 
-case class RawUser(
-  fullName: String,
-  email: String,
-  phone: String,
-  streetAddress: String,
-  city: String,
-  zipCode: String) {
-  lazy val person: Person = ???
-}
+import scala.collection.Iterator
+import scala.util.Try
 
 case class DomainUser(
   person: Person,
@@ -26,8 +20,34 @@ case class PhoneNumber(
 
 object PhoneNumber {
   private val pattern = """(\d{1})-(\d{3})-(\d{3})-(\d{4})""".r
+  private def toInt(s: String): TransformError \/ Int =
+    Try(s.toInt).toDisjunction.leftMap(e => TransformError(e.getMessage))
 
-  def from(phoneString: String): PhoneNumber = ???
+  // Una opcion de retorno es Option[PhoneNumber], Pero en este caso no tenemos contexto de que sucedio en el caso de None
+  // \/ -> Disjunction
+  def from(phoneString: String): TransformError \/ PhoneNumber = {
+    phoneString match {
+      case pattern(code, area, prefix, line) => {
+        (toInt(code) |@| toInt(area) |@| toInt(prefix) |@| toInt(line))(PhoneNumber.apply)
+      }
+      case _ => -\/(TransformError(s"$phoneString didn't parse"))
+    }
+  }
+}
+
+
+case class RawUser(
+  fullName: String,
+  email: String,
+  phone: String,
+  streetAddress: String,
+  city: String,
+  zipCode: String) {
+  lazy val person: TransformError \/ Person =
+    fullName.split(" ").toList match {
+      case first :: last :: Nil => \/-(Person(first, last))
+      case _ => -\/(TransformError(s"Failed parsing person"))
+    }
 }
 
 case class Person(firstName: String, lastName: String)
